@@ -36,7 +36,12 @@ paste_key() {
 }
 
 paste_mouse_key() {
-  get_tmux_option "$paste_mouse_key_option" "$paste_mouse_key_default"
+  if [ -v "@paste_mouse_key" ]; then
+    echo "@paste_mouse_key"
+  else
+    echo "paste_mouse_key_default"
+  fi
+  # get_tmux_option "$paste_mouse_key_option" "$paste_mouse_key_default"
 }
 
 paste_selection() {
